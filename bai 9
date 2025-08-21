@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class AbsoluteValue {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Nhập một số: ");
+        int number = scanner.nextInt();
+        int absolute = (number >= 0) ? number : -number;
+
+        System.out.println("Giá trị tuyệt đối là: " + absolute);
+
+        scanner.close();
+    }
+}
