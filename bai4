@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhập số thứ nhất: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Nhập số thứ hai: ");
+        int num2 = scanner.nextInt();
+        System.out.print("Nhập toán tử (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+
+        int result = 0; // biến lưu kết quả
+        boolean valid = true; // để kiểm tra toán tử hợp lệ
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+
+            case '-':
+                result = num1 - num2;
+                break;
+
+            case '*':
+                result = num1 * num2;
+                break;
+
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;  // chia lấy nguyên (vì là int)
+                } else {
+                    System.out.println("Lỗi: Không thể chia cho 0!");
+                    valid = false;
+                }
+                break;
+
+            default:
+                System.out.println("Toán tử không hợp lệ!");
+                valid = false;
+        }
+
+        if (valid) {
+            System.out.println(num1 + " " + operator + " " + num2 + " = " + result);
+        }
+
+        scanner.close();
+    }
+}
